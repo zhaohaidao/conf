@@ -1,0 +1,34 @@
+[filter "hawser"]
+        clean = git hawser clean %f
+        smudge = git hawser smudge %f
+        required = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
+[alias]
+        clog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        plog = log --graph --full-history --all --pretty=format:\"%Cred%h%x09%C(cyan)%d%x20%Creset%s%Cblue<%C(yellow)%aN%Cblue>\"
+        st = status
+        co = checkout
+        c-p = cherry-pick
+        pull = pull --rebase
+        commit = commit --no-verify
+[push]
+        default = matching
+[core]
+        editor=vim
+[merge]
+		tool = vimdiff3
+#[user]
+#	email = zhaohaiyuan@hotmail.com
+#	name = zhaohaidao2008
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager-core
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[user]
+	name = zhaohaidao
+	email = zhaohaidao2008@hotmail.com
